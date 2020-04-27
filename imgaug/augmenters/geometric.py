@@ -4360,8 +4360,7 @@ class ElasticTransformation(meta.Augmenter):
     # Added in 0.4.0.
     def _augment_image_by_samples(self, image, row_idx, samples, dx, dy):
         # pylint: disable=invalid-name
-        min_value, _center_value, max_value = \
-            iadt.get_value_range_of_dtype(image.dtype)
+        min_value, _center_value, max_value = iadt.get_value_range_of_dtype(image.dtype)
         cval = max(min(samples.cvals[row_idx], max_value), min_value)
 
         input_dtype = image.dtype
